@@ -48,15 +48,15 @@ project(formatter_ex_lib)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(SOURSES ${PROJECT_SOURSE_DIR} ../formatter_lib) # Добавляем источники: текучая директория проекта и директория используемой бибиотеки
+set(SOURSES ${PROJECT_SOURSE_DIR} ../formatter_lib)
 
 
 add_library(formatter_ex_lib STATIC formatter_ex.cpp formatter_ex.h)
 
-add_subdirectory(../formatter_lib ${CMAKE_CURRENT_BINARY_DIR}/formatter_lib)  # Добавляем в сборку директорию предыдущей библиотеки
+add_subdirectory(../formatter_lib ${CMAKE_CURRENT_BINARY_DIR}/formatter_lib)
 target_include_directories(formatter_ex_lib PUBLIC ${SOURSES}) 
 
-target_link_libraries(formatter_ex_lib formatter_lib) #Указываем что у нас используется предыдущая библиотека, которую мы добавили в папку build
+target_link_libraries(formatter_ex_lib formatter_lib) 
 
 ### Задание 3
 Конечно же ваша компания предоставляет примеры использования своих библиотек.
@@ -75,7 +75,7 @@ set(SOURSES ${PROJECT_SOURSE_DIR} ../formatter_ex_lib)
 add_subdirectory(../formatter_ex_lib ${CMAKE_CURRENT_BINARY_DIR}/formatter_ex_lib)
 
 target_include_directories(formatter_ex_lib PUBLIC ${SOURSES}) 
-add_executable(example hello_world.cpp) # В данном проекте требуется создать исполняемый файл, а не библитеку.
+add_executable(example hello_world.cpp) 
 target_link_libraries(example formatter_ex_lib)
 
 
